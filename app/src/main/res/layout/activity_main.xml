@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:nextFocusDown="@id/textView"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:fontFamily="@font/graduate"
+        android:text="áreas de figuras geométricas"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="@color/teal_700"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.043" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:checkedButton="@id/rdCirculo"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <RadioGroup
+            android:id="@+id/rg_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rdCirculo"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/figure_background_selector"
+                android:button="@android:color/transparent"
+                android:drawableTop="@drawable/outline_circle_24"
+                android:fontFamily="sans-serif-medium"
+                android:onClick="onClickRadioButton"
+                android:padding="16dp"
+                android:text="Círculo"
+                android:textAlignment="center"
+                android:textColor="@color/figure_text_selector"
+                android:textSize="18dp"
+                android:textStyle="bold|italic" />
+
+            <RadioButton
+                android:id="@+id/rdCuadrado"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/figure_background_selector"
+                android:button="@android:color/transparent"
+                android:drawableTop="@drawable/outline_square_24"
+                android:fontFamily="sans-serif-medium"
+                android:onClick="onClickRadioButton"
+                android:padding="16dp"
+                android:text="Cuadrado"
+                android:textAlignment="center"
+                android:textColor="@color/figure_text_selector"
+                android:textSize="18dp"
+                android:textStyle="bold|italic" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/rg_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rdRectangulo"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/figure_background_selector"
+                android:button="@android:color/transparent"
+                android:drawableTop="@drawable/outline_rectangle_24"
+                android:fontFamily="sans-serif-medium"
+                android:onClick="onClickRadioButton"
+                android:padding="16dp"
+                android:text="Rectángulo"
+                android:textAlignment="center"
+                android:textColor="@color/figure_text_selector"
+                android:textSize="18dp"
+                android:textStyle="bold|italic" />
+
+            <RadioButton
+                android:id="@+id/rdTriangulo"
+                android:layout_width="125dp"
+                android:layout_height="125dp"
+                android:layout_margin="5dp"
+                android:background="@drawable/figure_background_selector"
+                android:button="@android:color/transparent"
+                android:drawableTop="@drawable/outline_triangle"
+                android:fontFamily="sans-serif-medium"
+                android:onClick="onClickRadioButton"
+                android:padding="16dp"
+                android:text="Triángulo"
+                android:textAlignment="center"
+                android:textColor="@color/figure_text_selector"
+                android:textSize="18dp"
+                android:textStyle="bold|italic" />
+        </RadioGroup>
+
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnCalcular"
+        android:layout_width="215dp"
+        android:layout_height="58dp"
+        android:layout_marginBottom="64dp"
+        android:fontFamily="sans-serif-light"
+        android:onClick="onClickCalcular"
+        android:text="Calcular área"
+        android:textAllCaps="false"
+        android:textSize="22dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/lbArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="sans-serif-black"
+        android:text="Área"
+        android:textAllCaps="false"
+        android:textColor="@color/teal_700"
+        android:textSize="22dp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbAncho" />
+
+    <TextView
+        android:id="@+id/lbAlto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="40dp"
+        android:text="Alto"
+        android:textColor="@color/teal_700"
+        android:textSize="22dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/lbAncho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="24dp"
+        android:text="Ancho"
+        android:textColor="@color/teal_700"
+        android:textSize="22dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lbAlto" />
+
+    <EditText
+        android:id="@+id/txtAlto"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="Ingresa el alto"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textColorHint="@color/hint_selector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/lbAlto"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <EditText
+        android:id="@+id/txtAncho"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:hint="Ingresa el ancho"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textColorHint="@color/hint_selector"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/lbAncho"
+        app:layout_constraintTop_toBottomOf="@+id/txtAlto" />
+
+    <EditText
+        android:id="@+id/txtArea"
+        android:layout_width="279dp"
+        android:layout_height="53dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:autoText="false"
+        android:background="@android:drawable/editbox_background"
+        android:editable="false"
+        android:ems="10"
+        android:focusable="false"
+        android:fontFamily="sans-serif-black"
+        android:hint="Dale click al botón ;)"
+        android:inputType="numberDecimal"
+        android:textAlignment="center"
+        android:textColorHint="#757575"
+        android:textSize="22sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/lbArea"
+        app:layout_constraintTop_toBottomOf="@+id/txtAncho" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
